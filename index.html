@@ -790,7 +790,7 @@ footer{
           <div class="mh-stat"><div class="mh-stat-k">거주지</div><div class="mh-stat-v" style="color:var(--red)">옥탑방 (유저 집 근처)</div></div>
         </div>
       </div>
-      <a href="#" class="mh-play">플레이하기 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="https://rofan.ai/character/e5b2e865-e6f9-4118-aa58-b9f22b04af66" target="_blank" class="mh-play">플레이하기 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
     <div class="masthead-right">
       <div class="masthead-photo"><img src="https://i.postimg.cc/FR8K43ML/3_processed.png" alt="연승운" style="height:100%;width:100%;object-fit:cover;object-position:top center;display:block"></div>
@@ -895,7 +895,7 @@ footer{
       <div class="alert"><div class="alert-k">두려움</div><p>유저가 자신의 본모습을 알고 버리는 것. <strong>유저에게서 미움받는 것.</strong></p></div>
       <div class="alert dim"><div class="alert-k">배경</div><p>보육원 출신. 어릴 적부터 주먹 하나로 험한 거리를 전전하며 살아남았다. 사랑받는 법도, 주는 법도 모른 채 폭력과 배신에 익숙하게 자라 결핍이 심하다.</p></div>
       <div class="alert dim"><div class="alert-k">비고</div><p>박태수가 유저를 향한 칠성파의 암묵적 규칙을 깨기로 마음먹는 순간, 승운이 무엇을 해야 할지 — 그 선택을 두려워하고 있다.</p></div>
-      <a href="#" class="play-btn">플레이하기 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="https://rofan.ai/character/e5b2e865-e6f9-4118-aa58-b9f22b04af66" target="_blank" class="play-btn">플레이하기 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
   </div>
 </div>
@@ -1004,12 +1004,12 @@ const introEl  = document.getElementById('intro');
 const siteEl   = document.getElementById('site');
 
 const messages = [
-  { text: "유저야.", delay: 800 },
-  { text: "나 또 다쳤어.", delay: 2200 },
-  { text: "···많이는 아닌데.", delay: 3800 },
-  { text: "지금 어디야?", delay: 5200 },
-  { text: "혹시··· 잠깐 얼굴 볼 수 있어?", delay: 6800 },
-  { text: "보고 싶어서.", delay: 8600 },
+  { text: "유저야.", delay: 500 },
+  { text: "나 또 다쳤어.", delay: 1500 },
+  { text: "···많이는 아닌데.", delay: 2500 },
+  { text: "지금 어디야?", delay: 3500 },
+  { text: "혹시··· 잠깐 얼굴 볼 수 있어?", delay: 4600 },
+  { text: "보고 싶어서.", delay: 5800 },
 ];
 
 function addTyping(){
@@ -1047,7 +1047,7 @@ messages.forEach((msg, idx) => {
   setTimeout(()=>{
     if(typingEl){ removeTyping(typingEl); typingEl = null; }
     addMsg(msg.text, idx);
-  }, msg.delay + 1100);
+  }, msg.delay + 750);
 });
 
 enterBtn.addEventListener('click', ()=>{
