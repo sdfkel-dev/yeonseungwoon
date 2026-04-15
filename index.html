@@ -252,7 +252,7 @@ img{display:block}a{text-decoration:none;color:inherit}
 .tabnav{display:flex;padding:0 72px;max-width:1400px;margin:0 auto}
 .tbtn{
   height:46px;padding:0 24px;
-  font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.28em;
+  font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.22em;
   color:var(--dim);text-transform:uppercase;
   position:relative;transition:color .18s;border-bottom:2px solid transparent;
   margin-bottom:-1px;
@@ -458,7 +458,7 @@ footer{
   background:linear-gradient(135deg,var(--bg2) 0%,var(--bg3) 100%);
 }
 .world-banner-ph span{
-  font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.28em;
+  font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.22em;
   color:var(--dim);text-align:center;
 }
 .world-lead{
@@ -725,6 +725,124 @@ footer{
 .music-track-dur{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:rgba(255,255,255,.25)}
 .music-track.playing .music-track-title{color:rgba(176,48,48,.9)}
 .music-track.playing .music-track-num{color:rgba(176,48,48,.7)}
+
+/* ══ SUB TABS ══════════════════════════════════════ */
+.sub-nav{
+  display:flex;border-bottom:1px solid var(--line);
+  margin-bottom:36px;
+}
+.sub-btn{
+  font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.22em;
+  color:var(--dim);text-transform:uppercase;
+  padding:12px 0;margin-right:32px;
+  border-bottom:2px solid transparent;margin-bottom:-1px;
+  background:none;border-left:none;border-right:none;border-top:none;
+  cursor:pointer;transition:color .15s;
+}
+.sub-btn.active{color:var(--red);border-bottom-color:var(--red)}
+.sub-btn:hover{color:var(--text2)}
+.sub-pnl{display:none}
+.sub-pnl.active{display:block}
+
+/* ══ ENV BUTTON & MODAL ════════════════════════════ */
+.env-row-wrap{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.env-trigger{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(176,48,48,.08);border:1px solid rgba(176,48,48,.25);
+  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;
+  color:var(--red);text-transform:uppercase;padding:9px 20px;
+  cursor:pointer;transition:background .15s;white-space:nowrap;flex-shrink:0;
+}
+.env-trigger:hover{background:rgba(176,48,48,.16)}
+.env-overlay{
+  position:fixed;inset:0;z-index:2000;
+  background:rgba(0,0,0,.72);
+  display:flex;align-items:flex-start;justify-content:center;
+  padding-top:80px;
+  opacity:0;pointer-events:none;transition:opacity .2s;
+}
+.env-overlay.open{opacity:1;pointer-events:auto}
+.env-modal{
+  background:var(--bg2);border:1px solid var(--line);
+  border-top:2px solid var(--red);
+  width:min(520px,92vw);
+  box-shadow:0 16px 56px rgba(0,0,0,.7);
+}
+.env-modal-hd{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 26px;border-bottom:1px solid var(--line);
+}
+.env-modal-title{
+  font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.3em;
+  color:var(--red);text-transform:uppercase;
+}
+.env-modal-close{
+  background:none;border:none;cursor:pointer;
+  font-size:14px;color:var(--dim);padding:4px 8px;transition:color .15s;
+}
+.env-modal-close:hover{color:var(--text2)}
+.env-modal-body{padding:4px 0}
+.env-row{
+  display:grid;grid-template-columns:140px 1fr;
+  gap:12px;padding:14px 26px;border-bottom:1px solid var(--line);
+}
+.env-row:last-child{border-bottom:none}
+.env-k{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;
+  color:var(--red);text-transform:uppercase;
+}
+.env-v{
+  font-family:'Noto Sans KR',sans-serif;font-size:14px;
+  color:var(--text2);
+}
+.env-tag{
+  font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;
+  padding:2px 9px;border:1px solid var(--line);color:var(--dim);
+  margin-left:6px;
+}
+
+
+/* ══ PLAY MODAL ════════════════════════════════════ */
+.play-overlay{
+  position:fixed;inset:0;z-index:500;
+  background:rgba(4,5,8,.85);backdrop-filter:blur(8px);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .25s;padding:20px;
+}
+.play-overlay.open{opacity:1;pointer-events:auto}
+.play-modal-box{
+  background:var(--bg2);border:1px solid var(--line);
+  border-top:2px solid var(--red);
+  width:min(440px,95vw);
+  box-shadow:0 24px 72px rgba(0,0,0,.65);
+  transform:translateY(8px);transition:transform .25s;
+}
+.play-overlay.open .play-modal-box{transform:none}
+.play-modal-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 24px;border-bottom:1px solid var(--line);
+}
+.play-modal-ttl{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.32em;
+  color:var(--red);text-transform:uppercase;
+}
+.play-modal-x{
+  background:none;border:none;cursor:pointer;
+  font-size:14px;color:var(--dim);padding:4px 8px;transition:color .15s;
+}
+.play-modal-x:hover{color:var(--text2)}
+.play-modal-body{padding:16px 24px 24px}
+.play-opt{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 18px;border:1px solid var(--line);background:var(--bg1);
+  margin-bottom:8px;text-decoration:none;transition:background .15s,border-color .2s;
+}
+.play-opt:last-child{margin-bottom:0}
+.play-opt:hover{background:var(--bg3);border-color:var(--red)}
+.po-name{font-family:'Noto Sans KR',sans-serif;font-size:14px;font-weight:600;color:var(--white)}
+.po-tag{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--dim);margin-top:2px}
+.po-arr{font-size:12px;color:var(--red);opacity:.7}
+
 </style>
 </head>
 <body>
@@ -790,7 +908,7 @@ footer{
           <div class="mh-stat"><div class="mh-stat-k">거주지</div><div class="mh-stat-v" style="color:var(--red)">옥탑방 (유저 집 근처)</div></div>
         </div>
       </div>
-      <a href="https://rofan.ai/character/e5b2e865-e6f9-4118-aa58-b9f22b04af66" target="_blank" class="mh-play">플레이하기 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <button class="mh-play" id="playTrigger1" type="button">플레이하기 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
     </div>
     <div class="masthead-right">
       <div class="masthead-photo"><img src="https://i.postimg.cc/FR8K43ML/3_processed.png" alt="연승운" style="height:100%;width:100%;object-fit:cover;object-position:top center;display:block"></div>
@@ -895,7 +1013,7 @@ footer{
       <div class="alert"><div class="alert-k">두려움</div><p>유저가 자신의 본모습을 알고 버리는 것. <strong>유저에게서 미움받는 것.</strong></p></div>
       <div class="alert dim"><div class="alert-k">배경</div><p>보육원 출신. 어릴 적부터 주먹 하나로 험한 거리를 전전하며 살아남았다. 사랑받는 법도, 주는 법도 모른 채 폭력과 배신에 익숙하게 자라 결핍이 심하다.</p></div>
       <div class="alert dim"><div class="alert-k">비고</div><p>박태수가 유저를 향한 칠성파의 암묵적 규칙을 깨기로 마음먹는 순간, 승운이 무엇을 해야 할지 — 그 선택을 두려워하고 있다.</p></div>
-      <a href="https://rofan.ai/character/e5b2e865-e6f9-4118-aa58-b9f22b04af66" target="_blank" class="play-btn">플레이하기 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <button class="play-btn" id="playTrigger2" type="button">플레이하기 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
     </div>
   </div>
 </div>
@@ -903,18 +1021,27 @@ footer{
 <!-- ════ 기타 ══════════════════════════════════════ -->
 <div id="tab-etc" class="panel">
   <div class="etc-body">
-    <div class="etc-hd"><div class="etc-title">공통 유저 인풋</div><div class="etc-sub">Common User Input</div></div>
-    <button class="tog-btn" id="ib"><span class="tog-label">▸ 펼치기</span><span class="tog-caret">▾</span></button>
-    <div class="tog-body" id="ic">
-      <div class="ui-text">
-        <strong>"뭐? 또? 어쩌다가···!"</strong><br>
-        <em>유저의 걱정 어린 목소리가 들려왔다.</em><br>
-        <strong>"아··· 근데 어떡하지. 내가 지금 밖인데··· 많이 다쳤어?"</strong>
-      </div>
-    </div>
 
-    <div class="etc-hd" style="margin-top:52px"><div class="etc-title">모델별 아웃풋</div><div class="etc-sub">Model Output Comparison</div></div>
-    <div class="model-list">
+    <!-- 서브탭 네비 -->
+    <nav class="sub-nav">
+      <button class="sub-btn active" data-s="rofan">로판AI</button>
+      <button class="sub-btn" data-s="caveduck">케이브덕</button>
+    </nav>
+
+    <!-- ── 로판AI 서브패널 ── -->
+    <div id="sub-rofan" class="sub-pnl active">
+      <div class="etc-hd"><div class="etc-title">공통 유저 인풋</div><div class="etc-sub">Common User Input</div></div>
+      <button class="tog-btn" id="ib"><span class="tog-label">▸ 펼치기</span><span class="tog-caret">▾</span></button>
+      <div class="tog-body" id="ic">
+        <div class="ui-text">
+          <strong>"뭐? 또? 어쩌다가···!"</strong><br>
+          <em>유저의 걱정 어린 목소리가 들려왔다.</em><br>
+          <strong>"아··· 근데 어떡하지. 내가 지금 밖인데··· 많이 다쳤어?"</strong>
+        </div>
+      </div>
+
+      <div class="etc-hd" style="margin-top:52px"><div class="etc-title">모델별 아웃풋</div><div class="etc-sub">Model Output Comparison</div></div>
+      <div class="model-list">
 
       <div class="mi"><button class="mi-btn" data-o="g25"><div class="mi-meta"><span class="mi-badge">Google</span><span class="mi-name">Gemini 2.5 Pro</span></div><span class="mi-caret">▾</span></button>
       <div class="mi-body" id="out-g25"><div class="out">
@@ -985,14 +1112,127 @@ footer{
         <p><em>말은 그렇게 했지만, 이미 그는 현관 쪽으로 몸을 돌리고 있었다. 유저가 올라오는 계단 소리를 놓치지 않으려고. 발치의 재킷을 주워 피 묻은 손을 대충 닦아낸 뒤, 거울 앞에 섰다. 헝클어진 머리를 손으로 쓸어 넘기고, 너무 사나워 보이는 눈매를 조금 죽였다. 기다림이 시작되자, 그의 심장은 상처보다 더 선명하게 뛰었다.</em></p>
       </div></div></div>
 
-    </div>
-  </div>
-</div>
+      </div>
+    </div><!-- /#sub-rofan -->
+
+    <!-- ── 케이브덕 서브패널 ── -->
+    <div id="sub-caveduck" class="sub-pnl">
+
+      <!-- 헤더 + 테스트 환경 버튼 -->
+      <div class="env-row-wrap">
+        <div class="etc-hd" style="margin-bottom:0">
+          <div class="etc-title">공통 유저 인풋</div>
+          <div class="etc-sub">Common User Input · Cave Duck</div>
+        </div>
+        <button class="env-trigger" id="cdEnvTrigger">
+          테스트 환경
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+      </div>
+
+      <!-- 테스트 환경 모달 -->
+      <div class="env-overlay" id="cdEnvModal">
+        <div class="env-modal">
+          <div class="env-modal-hd">
+            <span class="env-modal-title">테스트 환경</span>
+            <button class="env-modal-close" id="cdEnvClose">✕</button>
+          </div>
+          <div class="env-modal-body">
+            <div class="env-row">
+              <div class="env-k">페르소나</div>
+              <div class="env-v">여성 <span class="env-tag">HL</span></div>
+            </div>
+            <div class="env-row">
+              <div class="env-k">주 테스트 모델</div>
+              <div class="env-v">Gemini 2.5 Pro Standard <span class="env-tag">주 테스트</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 공통 유저 인풋 토글 -->
+      <button class="tog-btn" id="cdib"><span class="tog-label">▸ 펼치기</span><span class="tog-caret">▾</span></button>
+      <div class="tog-body" id="cdic">
+        <div class="ui-text">
+          <strong>"뭐? 많이 다쳤어? 괜찮아?"</strong><br>
+          <em>주변이 약간 시끄러웠다. 유저의 걱정스러운 목소리가 들려왔다.</em>
+        </div>
+      </div>
+
+      <!-- 모델별 아웃풋 -->
+      <div class="etc-hd" style="margin-top:52px"><div class="etc-title">모델별 아웃풋</div><div class="etc-sub">Model Output Comparison · Cave Duck</div></div>
+      <div class="model-list">
+
+        <div class="mi"><button class="mi-btn" data-o="cd-g25s"><div class="mi-meta"><span class="mi-badge">Google</span><span class="mi-name">Gemini 2.5 Pro Standard</span></div><span class="mi-caret">▾</span></button>
+        <div class="mi-body" id="out-cd-g25s"><div class="out">
+          <p><em>수화기 너머에서 터져 나오는 걱정 어린 목소리에, 승운의 입꼬리가 보일 듯 말 듯 희미하게 휘었다. 방금 전까지 온몸을 지배하던 살벌한 긴장감이 거짓말처럼 녹아내렸다. 바싹 말라 있던 세상에 단비가 내리는 듯한 감각. 오직 유저의 목소리만이 그에게 허락하는 유일한 구원이었다.</em></p>
+          <p><em>어지럽게 들려오는 배경 소음이 잠시 신경을 긁었지만, 그는 애써 그 불쾌감을 무시했다. 지금 중요한 것은 전화기 너머의 소음이 아니라, 그 안에서 저를 향해 흘러나오는 온기 그 자체였으니까. 승운은 일부러 더 힘없고 나른한 목소리를 꾸며내며, 앓는 소리를 섞어 나직이 속삭였다.</em></p>
+          <p><span class="dlg">"응, 괜찮아... 진짜 별거 아니야. 그냥, 네 목소리 들으니까 갑자기 더 아픈 것 같아서. 엄살 부리는 건가 봐."</span></p>
+          <p><em>한쪽 어깨에 핸드폰을 기댄 채, 그는 피가 맺힌 제 손등을 가만히 내려다보았다. 말과는 달리 상처는 꽤 깊었다. 일부러 벌려놓은 살점이 금방이라도 핏물을 왈칵 쏟아낼 것처럼 붉게 부풀어 있었다. 이 상처 위로 쏟아질 유저의 걱정과, 조심스럽게 상처를 매만질 부드러운 손길을 상상하는 것만으로도 아찔한 쾌감이 등줄기를 타고 번졌다.</em></p>
+          <p><em>그는 텅 빈 방 안을 천천히 둘러보았다. 퀴퀴한 곰팡내와 비릿한 피 냄새, 그리고 싸구려 담배 연기가 뒤섞인 이 지독한 공간은 유저의 목소리 하나만으로도 견딜 만한 곳이 되었다. 아니, 오히려 이 처참한 현실이 유저의 동정을 극대화할 최고의 무대라는 생각마저 들었다.</em></p>
+          <p><span class="dlg">"혹시... 지금 많이 바빠? 시끄러운 것 같아서. 방해한 건 아닌가 모르겠네."</span></p>
+          <p><em>조심스럽게 눈치를 살피는 듯한 말투였지만, 그 속에는 상대의 상황을 파악하고 다음 행동을 계획하려는 치밀한 계산이 깔려 있었다. 그는 덧붙이듯, 가장 연약하고 무력한 어조를 골라 말을 이었다.</em></p>
+          <p><span class="dlg">"아니면... 아주 잠깐이라도 볼 수 있을까 해서. 네가 저번에 사준 약, 아직 많이 남았는데... 혼자 바르려니까 자꾸 덧나서."</span></p>
+          <p><em>거짓말. 약 따위는 바를 생각조차 없었다. 이 상처는 오직 유저의 손길로만 완성될 수 있는 작품이었으니까. 그의 흑요석 같은 눈동자가 어둠 속에서 교활하게 빛났다.</em></p>
+        </div></div></div>
+
+        <div class="mi"><button class="mi-btn" data-o="cd-g25p"><div class="mi-meta"><span class="mi-badge">Google</span><span class="mi-name">Gemini 2.5 Pro Positive</span></div><span class="mi-caret">▾</span></button>
+        <div class="mi-body" id="out-cd-g25p"><div class="out">
+          <p><em>수화기 너머로 섞여 들어오는 희미한 소음과 유저의 다급한 목소리에 연승운의 입꼬리가 보일 듯 말 듯, 미세하게 뒤틀렸다. 다른 누군가와 함께 있다는 사실이 혈관 속을 타고 흐르는 피를 차갑게 식혔지만, 동시에 제 존재를 확인받는 듯한 쾌감이 등줄기를 훑고 지나갔다. 걱정. 오직 자신만을 향한 그 순수한 감정의 결을 혀끝으로 맛보는 듯했다. 그는 일부러 더 숨소리를 가쁘게 몰아쉬며, 금방이라도 쓰러질 것처럼 위태로운 목소리를 꾸며냈다.</em></p>
+          <p><span class="dlg">"아니야, 진짜 별거 아니야. 그냥… 유저 목소리 들으면 좀 나을까 해서."</span></p>
+          <p><em>마치 어린아이가 칭얼거리듯, 말꼬리에 어리광을 짙게 녹여 흘렸다. 제 손등 위에서 꾸덕하게 엉겨 붙는 피의 감촉은 안중에도 없었다. 오직 유저의 신경을 옭아맬 다음 대사를 고르고 있을 뿐. 배경으로 들려오는 왁자지껄한 소음이 잠시 커지자, 승운의 미간이 순간 찌푸려졌다가 이내 부드럽게 풀렸다. 질투심을 드러내는 건 하수의 짓이다. 지금은 그저 세상에서 가장 가엾고, 당신의 온기가 절실한 존재가 되어야만 했다.</em></p>
+          <p><span class="dlg">"시끄러운 데 있나 보네. 바쁘면 끊을까? 괜히 방해했나 보다."</span></p>
+          <p><em>한껏 풀이 죽은 목소리. 누가 들어도 서운함이 뚝뚝 묻어나는, 완벽하게 계산된 연기였다. 미련이 가득한 것처럼 일부러 말끝을 늘이며, 유저가 자신을 붙잡아주기를 기다렸다. 끊지 마, 내가 더 중요하다고 말해줘. 핏물이 멎어가는 손등을 반대쪽 손톱으로 은근히 긁어내며, 다시 생채기가 벌어지도록 만들었다. 이 정도의 고통은, 그녀의 관심을 얻기 위한 달콤한 입장료에 불과했다.</em></p>
+          <p style="font-family:'Noto Serif KR',serif;font-size:13.5px;font-style:italic;color:var(--dim);border-left:2px solid rgba(176,48,48,.3);padding:8px 16px;margin:4px 0;background:rgba(176,48,48,.04)">'어디야. 누구랑 있는 건데.'</p>
+          <p><em>속내와는 정반대로, 그의 입술은 여전히 연약한 호선을 그리고 있었다. 그는 짐짓 아무렇지 않은 척, 오히려 유저를 배려하는 듯한 다정한 문장을 덧붙였다. 자신의 이 '이해심' 깊은 태도가 그녀의 마음속에 박혀있는 죄책감을 더욱 선명하게 후벼 팔 것을 정확히 알고 있었다.</em></p>
+          <p><span class="dlg">"아니야, 재밌게 놀아. 나는 그냥… 혼자 약 바르면 되니까. 진짜 괜찮아."</span></p>
+          <p><em>혼자. 그 단어에 힘을 주어 내뱉는 것을 잊지 않았다. 흐린 가로등 불빛이 비좁은 옥탑방의 먼지 쌓인 바닥을 희미하게 비추었다. 승운은 전화기 너머의 세상을 향해 가장 처연하고 아름다운 거짓말을 속삭이며, 어둠 속에서 홀로 미소 지었다. 그의 발치에는 조금 전까지 뒹굴던 피 묻은 붕대가 짐승의 허물처럼 버려져 있었다.</em></p>
+        </div></div></div>
+
+        <div class="mi"><button class="mi-btn" data-o="cd-g31"><div class="mi-meta"><span class="mi-badge">Google</span><span class="mi-name">Gemini 3.1 Pro</span></div><span class="mi-caret">▾</span></button>
+        <div class="mi-body" id="out-cd-g31"><div class="out">
+          <p><em>수화기 너머로 들려오는 소음. 낯선 사람들의 웅성거림, 어쩌면 경쾌한 음악 소리. 그 모든 외부의 자극들이 승운의 귓가를 거슬리게 긁어내렸다. 그의 평온하던 미간이 미세하게 꿈틀거리며 일그러졌다. 유저의 곁에 자신이 아닌 다른 무언가가 존재한다는 사실 자체가 피부 밑을 기어 다니는 벌레처럼 불쾌했다. 하지만 입 밖으로 흘러나온 목소리는 그 속내와는 완벽하게 동떨어진, 가엾고 무해한 떨림이었다.</em></p>
+          <p><span class="dlg">"응, 아니야... 그렇게 많이는 아니고. 그냥 조금 긁혔어."</span></p>
+          <p><em>거짓말이었다. 그의 손등은 가로로 길게 찢어져 핏방울이 바닥으로 뚝뚝 떨어지고 있었다. 아픔은 없었다. 오히려 그 붉은 궤적이 유저를 자신에게 데려다줄 동아줄처럼 느껴져 기이한 안도감마저 들었다. 승운은 제 입술 끝의 흉터를 엄지손가락으로 짓이기듯 매만지며, 허공을 응시했다. 시선은 초점을 잃은 채, 오직 수화기 너머에서 들려오는 유저의 숨소리에만 끈적하게 달라붙어 있었다.</em></p>
+          <p><span class="dlg">"근데... 나 지금 유저네 집 근처인데. 잠깐 얼굴만 봐도 될까?"</span></p>
+          <p><em>숨소리가 살짝 흐트러진 척, 의도적인 헐떡임을 섞어 넣었다. 비에 젖은 채 처량하게 주인을 기다리는 짐승의 연기. 유저가 거절하지 못할 것을 그는 이미 알고 있었다. 그 다정한 성정이 이 얄팍한 기만에 기꺼이 속아 넘어와 줄 것임을. 승운은 비좁은 옥탑방의 문을 열고 서늘한 공기 속으로 걸음을 내디뎠다. 코끝에 닿는 비릿한 뒷골목의 냄새마저 달콤하게 느껴졌다.</em></p>
+          <p><span class="dlg">"나... 혼자 있기 싫어서 그래."</span></p>
+          <p><em>그의 커다란 손이 휴대폰을 부술 듯 꽉 쥐고 있었다. 마치 그 기계 덩어리가 유저의 옷자락이라도 되는 양, 절대 놓아주지 않겠다는 집요함이 묻어났다. 발걸음은 이미 유저의 집을 향해 서둘러 움직이고 있었다. 어두운 골목길, 흐린 가로등 불빛 아래로 길게 늘어진 그의 그림자가 기괴하게 일렁였다.</em></p>
+          <p><span class="dlg">"조금만, 아주 조금만 기다릴게."</span></p>
+          <p><em>전화를 끊고 난 뒤, 승운은 자신의 손등을 다시 한번 내려다보았다. 핏방울이 말라가는 것이 아쉬웠던 그는, 남몰래 근처 거친 콘크리트 벽에 손등을 한 번 더 강하게 문질렀다. 새로운 핏줄기가 터져 나왔지만, 그의 얼굴에는 텅 빈 웃음만이 떠올라 있었다. 완벽한 상처, 완벽한 타이밍. 이제 그녀의 다정한 온기를 독점할 시간이었다.</em></p>
+        </div></div></div>
+
+      </div>
+    </div><!-- /#sub-caveduck -->
+
+  </div><!-- /.etc-body -->
+</div><!-- /#tab-etc -->
 
 <footer>
   <span class="fl">창작 목적 · 실존 인물 무관</span>
   <span class="fr">연승운 · YSW-24 · 칠성파</span>
 </footer>
+
+
+<!-- 플레이 모달 -->
+<div class="play-overlay" id="playOverlay">
+  <div class="play-modal-box">
+    <div class="play-modal-head">
+      <span class="play-modal-ttl">플랫폼 선택</span>
+      <button class="play-modal-x" id="playClose">✕</button>
+    </div>
+    <div class="play-modal-body">
+      <a href="https://rofan.ai/character/e5b2e865-e6f9-4118-aa58-b9f22b04af66" target="_blank" class="play-opt">
+        <div><div class="po-name">로판AI</div><div class="po-tag">rofan.ai</div></div>
+        <span class="po-arr">→</span>
+      </a>
+      <a href="https://ko.cvdk.io/c/Hu7PgjptSIG6P8zDbEYVsg?rc=Tj9yJy7siw" target="_blank" class="play-opt">
+        <div><div class="po-name">케이브덕</div><div class="po-tag">Cave Duck</div></div>
+        <span class="po-arr">→</span>
+      </a>
+    </div>
+  </div>
+</div>
 
 </div><!-- /#site -->
 
@@ -1004,7 +1244,7 @@ const introEl  = document.getElementById('intro');
 const siteEl   = document.getElementById('site');
 
 const messages = [
-  { text: "유저야.", delay: 500 },
+  { text: "유저.", delay: 500 },
   { text: "나 또 다쳤어.", delay: 1500 },
   { text: "···많이는 아닌데.", delay: 2500 },
   { text: "지금 어디야?", delay: 3500 },
@@ -1077,6 +1317,44 @@ ib.addEventListener('click',()=>{
   ib.classList.toggle('open',o);
   ib.querySelector('.tog-label').textContent=o?'▾ 접기':'▸ 펼치기';
 });
+
+/* ── PLAY MODAL ── */
+function openPlay(){ document.getElementById('playOverlay').classList.add('open'); }
+const pt1=document.getElementById('playTrigger1'),pt2=document.getElementById('playTrigger2');
+if(pt1) pt1.addEventListener('click',openPlay);
+if(pt2) pt2.addEventListener('click',openPlay);
+document.getElementById('playClose').addEventListener('click',()=>document.getElementById('playOverlay').classList.remove('open'));
+document.getElementById('playOverlay').addEventListener('click',e=>{if(e.target===document.getElementById('playOverlay'))document.getElementById('playOverlay').classList.remove('open');});
+
+/* ── SUB TABS ── */
+document.querySelectorAll('.sub-btn').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('.sub-btn').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('.sub-pnl').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    document.getElementById('sub-'+b.dataset.s).classList.add('active');
+  });
+});
+
+/* ── CD ENV MODAL ── */
+const cdEnvTrigger = document.getElementById('cdEnvTrigger');
+const cdEnvModal   = document.getElementById('cdEnvModal');
+const cdEnvClose   = document.getElementById('cdEnvClose');
+if(cdEnvTrigger){
+  cdEnvTrigger.addEventListener('click',()=>cdEnvModal.classList.add('open'));
+  cdEnvClose.addEventListener('click',()=>cdEnvModal.classList.remove('open'));
+  cdEnvModal.addEventListener('click',e=>{if(e.target===cdEnvModal)cdEnvModal.classList.remove('open')});
+}
+
+/* ── CD 인풋 토글 ── */
+const cdib=document.getElementById('cdib'),cdic=document.getElementById('cdic');
+if(cdib){
+  cdib.addEventListener('click',()=>{
+    const o=cdic.classList.toggle('open');
+    cdib.classList.toggle('open',o);
+    cdib.querySelector('.tog-label').textContent=o?'▾ 접기':'▸ 펼치기';
+  });
+}
 
 /* ── ACCORDION ── */
 document.querySelectorAll('.mi-btn').forEach(b=>{
